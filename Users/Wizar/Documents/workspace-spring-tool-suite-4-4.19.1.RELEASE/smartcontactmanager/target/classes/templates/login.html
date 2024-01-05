@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Base::Layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section>
+		<link rel="stylesheet" th:href="@{/css/login.css}" />
+
+		<div class="container">
+			<input type="checkbox" id="flip">
+			<div class="cover">
+				<div class="front">
+					<img src="images/frontImg.jpg" alt="">
+				</div>
+			</div>
+			<div class="forms">
+				<div class="form-content">
+					<div class="login-form">
+						<div class="title">Signin</div>
+						<form th:action="@{/sign}" action="#" method="post" autocomplete="off">
+							<div class="input-boxes">
+								<div class="input-box">
+									<i class="fas fa-envelope"></i>
+									<input name="username" type="text" placeholder="Enter your email" required>
+								</div>
+								<div class="input-box">
+									<i class="fas fa-lock"></i>
+									<input name="password" type="password" placeholder="Enter your password" required>
+								</div>
+								<div class="text"><a>Forgot password?</a></div>
+								<div class="button input-box">
+									<input type="submit" value="Sumbit">
+								</div>
+								<div class="text sign-up-text">Don't have an account? <a href="/signup" for="flip">Sigup
+										now</a></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/Base::Layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+
+<body>
+	<section>
+		<link rel="stylesheet" th:href="@{/css/contactprofile.css}" />
+		<section class="bg-light mb-4 sec">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 mb-4 mb-sm-5">
+						<div class="card card-style1 border-0">
+							<div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+								<div class="row align-items-center">
+									<div class="col-lg-6 mb-4 mb-lg-0">
+										<img th:alt="${c.image}" th:src="@{'/img/'+${c.image}}" height="100" width="100">
+									</div>
+									<div class="col-lg-6 px-xl-10">
+										<div  class=" bg-secondary w-100 d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+											<h3 class="h2 text-white mb-0" th:text="${c.firstName}"></h3>
+											<span class="text-primary" th:text="${c.secondName}"></span>
+										</div>
+										<ul class="list-unstyled mb-1-9">
+											<li class="mb-2 mb-xl-3 display-28"><span
+													class="display-26 text-secondary me-2 font-weight-600">Position:</span>
+												<span th:text="${c.work}"></span></li>
+											<li class="mb-2 mb-xl-3 display-28"><span
+													class="display-26 text-secondary me-2 font-weight-600">Experience:</span>
+												10 Years</li>
+											<li class="mb-2 mb-xl-3 display-28"><span
+													class="display-26 text-secondary me-2 font-weight-600">Email:</span><span
+													th:text="${c.email}"></span></li>
+											<li class="display-28"><span
+													class="display-26 text-secondary me-2 font-weight-600">Phone:</span><span
+													th:text="${c.phone}"></span></li>
+										</ul>
+										<ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+											<li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+											<li><a href="#!"><i class="ti-facebook"></i></a></li>
+											<li><a href="#!"><i class="ti-pinterest"></i></a></li>
+											<li><a href="#!"><i class="ti-instagram"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 mb-4 mb-sm-5">
+						<div>
+							<span class="section-title text-primary mb-3 mb-sm-4 display-6">About Me</span>
+							<p class="text-center" th:utext="${c.description}"></p>
+						</div>
+					</div>
+				</div>
+				<div class="buttons d-flex mt-2 justify-content-center">
+					<button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit
+						Profile</button>
+					<a  th:href="@{'/user/'+${c.cId}+'/delete'}" >
+						<button class="btn btn-outline-danger">Delete</button>
+					</a>
+				</div>
+		</section>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form th:action="@{'/user/'+${c.cId}+'/update'}" class="mt-2 " method="post"
+							enctype="multipart/form-data">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-plus"></i>
+									</div>
+								</div>
+								<input th:value="${c.cId}" name="cId" type="text" disabled="true"
+									class="form-control" />
+							</div>
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-plus"></i>
+									</div>
+								</div>
+								<input th:value="${c.firstName}" type="text" id="firstName" name="firstName"
+									placeholder="Enter Your Name" class="form-control" />
+							</div>
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-user"></i>
+									</div>
+								</div>
+								<input th:value="${c.secondName}" type="text" id="secondName" name="secondName"
+									placeholder="Enter Your Nick Name" class="form-control" />
+							</div>
+
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-at"></i>
+									</div>
+								</div>
+								<input th:value="${c.email}" type="email" id="emails" name="email"
+									placeholder="Enter Your Email Address" class="form-control" />
+							</div>
+
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-phone"></i>
+									</div>
+								</div>
+								<input th:value="${c.phone}" type="text" id="pNumber" name="phone"
+									placeholder="Enter Your Contact Number" class="form-control" />
+							</div>
+
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-image"></i>
+									</div>
+								</div>
+								<input type="file" id="fimage" name="fimages" placeholder="Select Your Image"
+									class="form-control" />
+							</div>
+
+
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-briefcase"></i>
+									</div>
+								</div>
+								<input th:value="${c.work}" type="text" id="worrk" name="work" placeholder="Enter Work"
+									class="form-control" />
+							</div>
+
+							<div class="input-group  mt-3">
+								<div class="input-group-prepend">
+								</div>
+								<textarea th:utext="${c.description}" rows="10" id="mytextarea" name="description"
+									placeholder="Description" class="form-control"></textarea>
+							</div>
+							<div class="container mt-3 text-center ">
+								<input class="btn btn-outline-primary" type="submit" />
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+					referrerpolicy="origin"></script>
+				<script>
+					tinymce.init({
+						selector: '#mytextarea'
+					});
+				</script>
+	</section>
+</body>
+
+</html>

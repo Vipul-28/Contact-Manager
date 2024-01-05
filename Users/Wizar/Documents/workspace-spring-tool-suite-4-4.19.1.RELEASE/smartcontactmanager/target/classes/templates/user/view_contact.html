@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/Base::Layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+<!--	<link rel="stylesheet" th:href="@{/css/style.css}" />
+-->
+</head>
+
+<body>
+	<section>
+				<link rel="stylesheet" th:href="@{/css/showcontact.css}" />
+
+		<h1 class="text-center ">Contacts</h1>
+		<div class="container table-responsive card mb-5">
+			<!-- contacts card -->
+			<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Contact</th>
+							<th scope="col">Email</th>
+							<th scope="col">Work</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody class="m-3">
+
+						<tr th:each="list:${list}">
+							<th scope="row">#</th>
+							<td>
+
+								<img class="profile_contact" th:src="@{'/img/'+${list.image}}" />
+								<span th:text="${list.firstName}"></span>
+
+							</td>
+							<td name="phone" th:text="${list.phone}"></td>
+							<td th:text="${list.email}"></td>
+							<td th:text="${list.work}"></td>
+							<td>
+							<a th:href="@{'/user/'+${list.cId}+'/single-page'}">	<button type="submit" class="btn btn-primary" data-toggle="modal"
+									data-target="#exampleModalCenter">Show</button>
+			</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Button trigger modal -->
+
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

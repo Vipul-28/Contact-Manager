@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Base::Layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+
+
+
+		<link rel="stylesheet" th:href="@{/css/login.css}" />
+
+
+
+
+		<div class="container">
+			<input type="checkbox" id="flip">
+			<div class="cover">
+				<div class="front">
+					<img src="images/frontImg.jpg" alt="">
+				</div>
+			</div>
+			<div class="forms">
+				<div class="form-content mr-5">
+					<div class="login-form">
+						<div class="title">SignUp</div>
+
+						<div class="alert" role="alert" th:if="${session.message}"
+							th:classappend="${session.message.type}">
+						</div>							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						<form th:action="registration" th:object="${user}" method="post">
+							<div class="input-boxes">
+								<div class="input-box">
+									<i class="fas fa-envelope"></i>
+									<input name="name" type="text" placeholder="Enter your email"
+										th:value="${user.name}"
+										th:classappend="${#fields.hasErrors('name')?'is-invalid':''}" required>
+									<div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}">
+										Please provide a valid state.
+									</div>
+								</div>
+								<div class="input-box">
+									<i class="fas fa-envelope"></i>
+									<input name="email" type="email" placeholder="Enter your email"
+										th:value="${user.email}"
+										th:classappend="${#fields.hasErrors('email')?'is-invalid':''}" required>
+									<div class="invalid-feedback" th:each="e:${#fields.errors('email')}" th:text="${e}">
+										Please provide a valid state.
+									</div>
+
+								</div>
+								<div class="input-box">
+									<i class="fas fa-lock"></i>
+									<input name="password" type="password" placeholder="Enter your password" required>
+								</div>
+								<div class="input-box">
+									<i class="fas fa-envelope"></i>
+									<input name="about" type="text" placeholder="Enter About YourSelf"
+					 required>
+								</div>
+								<div class="text-center">
+									<input type="checkbox" class="form-check-input" id="exampleCheck1"
+										th:classappend="${#fields.hasErrors('enabled')?'is-invalid':''}">
+									<label name="enabled" class="form-check-label" for="exampleCheck1">Check me
+										out</label>
+									<div class="invalid-feedback" th:each="e:${#fields.errors('enabled')}"
+										th:text="${e}">
+										Please provide a valid state.
+									</div>
+								</div>
+								<div class="button input-box">
+									<input type="submit" value="Sumbit">
+								</div>
+								<div class="text sign-up-text">Already have an account? <a href="/sign" for="flip">Sigin
+										now</a></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+<script>
+	const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+// Get the toast button element
+const toastButton = document.querySelector('.show-toast')
+
+// Add an event listener to the toast button element
+toastButton.addEventListener('click', () => {
+  // Fire the toast notification
+  Toast.fire({
+    icon: 'success',
+    title: 'Signed in successfully'
+  })
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--<form>
+			<div class="form-group">
+				<label for="username">UserName</label>
+				<input name="name" type="text" class="form-control" id="username" placeholder="UserName"
+					th:value="${user.name}" th:classappend="${#fields.hasErrors('name')?'is-invalid':''}" />
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input name="email" type="email" class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" placeholder="Enter email" th:value="${user.email}"
+					th:classappend="${#fields.hasErrors('email')?'is-invalid':''}">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+					else.</small>
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input name="password" type="password" class="form-control" th:value="${user.password}"
+					id="exampleInputPassword1" placeholder="Password"
+					th:classappend="${#fields.hasErrors('password')?'is-invalid':''}">
+				<div class="invalid-feedback" th:each="e:${#fields.errors('password')}" th:text="${e}">
+					Please provide a valid state.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="textarea">About</label>
+				<textarea name="about" id="textarea" class="form-control" placeholder="About"></textarea>
+			</div>
+
+			<div class="form-group form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1"
+					th:classappend="${#fields.hasErrors('enabled')?'is-invalid':''}">
+				<label name="enabled" class="form-check-label" for="exampleCheck1">Check me out</label>
+				<div class="invalid-feedback" th:each="e:${#fields.errors('enabled')}" th:text="${e}">
+					Please provide a valid state.
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>-->
+	</section>
+</body>
+
+</html>

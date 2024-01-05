@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Base::Layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section>
+		<link rel="stylesheet" th:href="@{/css/login.css}" />
+			<div style="height: 70vh;" class="forms d-flex justify-content-center align-items-center  ">
+				<div class="form-content ">
+					<div class="login-form">
+						<div class="title">Signin</div>
+						<form th:action="@{/fgpass}" action="#" method="post" autocomplete="off">
+							<div class="input-boxes d-flex flex-column  justify-content-center">
+								<div class="input-box ">
+									<i class="fas fa-envelope"></i>
+									<input   name="email" type="email" placeholder="Enter your email" required>
+								</div>
+								<div class="button input-box">
+									<input type="submit" value="Sumbit">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+
+</html>

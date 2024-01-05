@@ -1,0 +1,56 @@
+.card {
+  animation: fadeIn 1s ease-in-out;
+}
+.card-body {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.form-group {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-group:last-child {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Submit button animation */
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-radius: 4px;
+}

@@ -1,0 +1,83 @@
+<div class="card m-3">
+			<div class="card-body">
+				<h1 class="text-center c">Add Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<form action="addcontact" th:object="${contact}" class="mt-2 " method="post"
+								enctype="multipart/form-data">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-plus"></i>
+										</div>
+									</div>
+									<input type="text" id="firstName" name="firstName" placeholder="Enter Your Name"
+										class="form-control" />
+								</div>
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-user"></i>
+										</div>
+									</div>
+									<input type="text" id="secondName" name="secondName"
+										placeholder="Enter Your Nick Name" class="form-control" />
+								</div>
+
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-at"></i>
+										</div>
+									</div>
+									<input type="email" id="emails" name="email" placeholder="Enter Your Email Address"
+										class="form-control" />
+								</div>
+
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-phone"></i>
+										</div>
+									</div>
+									<input type="text" id="pNumber" name="phone" placeholder="Enter Your Contact Number"
+										class="form-control" />
+								</div>
+
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-image"></i>
+										</div>
+									</div>
+									<input type="file" id="fimage" name="fimages" placeholder="Select Your Image"
+										class="form-control" />
+								</div>
+
+
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fa fa-briefcase"></i>
+										</div>
+									</div>
+									<input type="text" id="worrk" name="work" placeholder="Enter Work"
+										class="form-control" />
+								</div>
+
+								<div class="input-group  mt-3">
+									<div class="input-group-prepend">
+									</div>
+									<textarea rows="10" id="mytextarea" name="description" placeholder="Description"
+										class="form-control"></textarea>
+								</div>
+								<div class="container mt-3 text-center ">
+									<input class="btn btn-outline-primary" type="submit" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
